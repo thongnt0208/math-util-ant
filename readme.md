@@ -14,6 +14,6 @@
 ![DDT source code using JUnit](https://github.com/thongnt0208/math-util-ant/blob/main/screenshot/unit-test-with-ddt.png)
 
 
-#### Connect me via danghoanganh36@gmail.com
+#### Connect me via trungthongnguyen2002@gmail.com
 
-#### Copyright &#169; 2022 anh.hoang
+#### Copyright &#169; 2022 thongnt0208
