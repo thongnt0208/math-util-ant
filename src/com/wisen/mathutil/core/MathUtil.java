@@ -15,11 +15,42 @@ public class MathUtil {
 
     public static final double PI = 3.141592653589793;
 
+//    //hàm tiện ích tính n! = 1.2.3...n
+//    //Lưu ý:
+//    //  - Không tính giai thừa số âm
+//    //    0! = 1! = 1
+//    //  - Vì giai thừa tăng cực nhanh nên 21! đã vượt 18 số 0 -> tràn kiểu long -> Ta không tính 21! trở lên
+//    public static long getFactorial(int n) {
+//        if (n < 0 || n > 20) 
+//            throw new IllegalArgumentException("Invalid n. n must be between 0..20");
+//        
+//        if (n == 0 || n == 1)
+//            return 1;
+//        
+//        //sống đến đây -> sure n = 1..20 ròiii
+//        //CẤM dùng ELSE khi hàm đã có return phía trước
+//        long product = 1; //biến tích luỹ, nhân dồn/acc/accumulation
+//        for (int i = 2; i <= n; i++)
+//            product *= i;
+//        
+//        return product;
+//    }
+    
+    
     //hàm tiện ích tính n! = 1.2.3...n
     //Lưu ý:
     //  - Không tính giai thừa số âm
     //    0! = 1! = 1
     //  - Vì giai thừa tăng cực nhanh nên 21! đã vượt 18 số 0 -> tràn kiểu long -> Ta không tính 21! trở lên
+//    SỬA HÀM TÍNH GIAI THỪA BẰNG CÁCH DÙNG ĐỆ QUY
+    //n! = 1.2.3.4.5....n
+    //4! = 4 . 3!
+    //3! = 3 . 2!
+    //2! = 2 . 1!
+    //1! = 1 -----> chốt dừng, dội ngược lên
+    //=> n! = n . (n-1)! ------> công thức đệ quy
+    //ĐỆ QUY: gọi lại chính mình với quy mô khác nhỏ hơn 
+    //con búp bê Nga
     public static long getFactorial(int n) {
         if (n < 0 || n > 20) 
             throw new IllegalArgumentException("Invalid n. n must be between 0..20");
@@ -27,13 +58,7 @@ public class MathUtil {
         if (n == 0 || n == 1)
             return 1;
         
-        //sống đến đây -> sure n = 1..20 ròiii
-        //CẤM dùng ELSE khi hàm đã có return phía trước
-        long product = 1; //biến tích luỹ, nhân dồn/acc/accumulation
-        for (int i = 2; i <= n; i++)
-            product *= i;
-        
-        return product;
+        return n*getFactorial(n - 1);
     }
 }
 
